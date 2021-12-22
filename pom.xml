@@ -16,7 +16,7 @@
   <description>Take notes</description>  
   <properties> 
     <java.version>11</java.version> 
-  </properties>
+  </properties>  
   <dependencies> 
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
@@ -44,13 +44,43 @@
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-test</artifactId>  
       <scope>test</scope> 
-    </dependency>
+    </dependency> 
   </dependencies>  
   <build> 
     <plugins> 
       <plugin> 
         <groupId>org.springframework.boot</groupId>  
         <artifactId>spring-boot-maven-plugin</artifactId> 
+      </plugin>  
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>2.2.0</version>
+        <configuration>
+          <schemaVersion>v2</schemaVersion>
+          <subscriptionId>9b55b4b6-5a78-420f-a669-fdb43873b0ce</subscriptionId>
+          <resourceGroup>rkord-notes-rg</resourceGroup>
+          <appName>rkord</appName>
+          <pricingTier>F1</pricingTier>
+          <region>eastus</region>
+          <appServicePlanName>ASP-rkordnotesrg-82a0</appServicePlanName>
+          <appServicePlanResourceGroup>rkord-notes-rg</appServicePlanResourceGroup>
+          <runtime>
+            <os>Linux</os>
+            <javaVersion>Java 11</javaVersion>
+            <webContainer>Java SE</webContainer>
+          </runtime>
+          <deployment>
+            <resources>
+              <resource>
+                <directory>${project.basedir}/target</directory>
+                <includes>
+                  <include>*.jar</include>
+                </includes>
+              </resource>
+            </resources>
+          </deployment>
+        </configuration>
       </plugin>
     </plugins> 
   </build> 
