@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "rkorddevaks-acd9"
+  labels:
+    app: "rkorddevaks-acd9"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    app: "rkorddevaks-acd9"

@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "rkorddevaks-acd9"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "rkorddevaks-acd9"
+  template:
+    metadata:
+      labels:
+        app: "rkorddevaks-acd9"
+    spec:
+      containers:
+        - name: "rkorddevaks-acd9"
+          image: "rkordcr.azurecr.io/rkorddevaks"
+          ports:
+            - containerPort: 8080
