@@ -31,7 +31,7 @@ public class NotesController {
     @GetMapping("/")
     public ModelAndView load() {
         ModelAndView modelAndView = new ModelAndView("notes");
-        List<Notes> notes = notesRepository.findAll();
+        List<Notes> notes = notesRepository.findAll().collectList().block();
         modelAndView.addObject("userNotes", notes);
         return modelAndView;
     }

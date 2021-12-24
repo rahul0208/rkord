@@ -1,16 +1,12 @@
 package com.notes.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.azure.spring.data.cosmos.core.mapping.Container;
+import org.springframework.data.annotation.Id;
 
-@Entity
-@Table(name = "notes")
+
+@Container(containerName = "notescollection")
 public class Notes {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String message;
 

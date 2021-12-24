@@ -1,7 +1,7 @@
 package com.notes.repository;
 
+import com.azure.spring.data.cosmos.repository.ReactiveCosmosRepository;
 import com.notes.entity.Notes;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface NotesRepository extends JpaRepository<Notes,Integer> {
+public interface NotesRepository extends ReactiveCosmosRepository<Notes,Integer> {
 }
