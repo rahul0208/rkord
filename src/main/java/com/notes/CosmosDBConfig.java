@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 @Profile("prod")
 @Configuration
-public class CosmosConfig extends AbstractCosmosConfiguration {
+public class CosmosDBConfig extends AbstractCosmosConfiguration {
     @Value("${cosmos.dbname}")
     private  String dbname;
     @Value("${cosmos.loc}")
