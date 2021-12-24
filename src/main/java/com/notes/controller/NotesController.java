@@ -42,7 +42,7 @@ public class NotesController {
         String html= renderer.render(document);
         Notes note = new Notes();
         note.setMessage(html);
-        notesRepository.save(note);
+        notesRepository.save(note).block();
         return "redirect:/";
     }
 }
